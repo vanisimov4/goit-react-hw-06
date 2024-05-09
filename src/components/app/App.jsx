@@ -55,7 +55,7 @@ function App() {
     <div className="mainWrapper">
       <h1>Phonebook</h1>
       <ContactForm onAddContact={handleAddContact} />
-      <SearchBox value={searchValue} onChange={handleChangeSearch} />
+      <SearchBox onChange={handleChangeSearch} />
       <ContactList contList={filteredContacts} onDelete={handleDelContact} />
     </div>
   );
