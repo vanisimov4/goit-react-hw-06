@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 
-export const addContact = (name, number) => {
+export const addContact = ({ name, number }) => {
   return {
     type: 'contacts/addContact',
     payload: {
