@@ -1,7 +1,9 @@
+import { useDispatch } from 'react-redux';
 import { useId } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
+import { addContact } from '../../redux/TempActions';
 import css from './ContactForm.module.css';
 
 const initialValues = {
@@ -24,6 +26,8 @@ const PhonebookSchema = Yup.object().shape({
 });
 
 const ContactForm = ({ onAddContact }) => {
+  const dispatch = useDispatch();
+
   const nameFieldId = useId();
   const numberFieldId = useId();
 
