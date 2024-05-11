@@ -8,7 +8,7 @@ function getFilteredContacts(contList, searchValue) {
   );
 }
 
-const ContactList = ({ onDelete }) => {
+const ContactList = () => {
   const contList = useSelector(state => state.contacts.items);
   const searchValue = useSelector(state => state.filters.name);
   const visibleContacts = getFilteredContacts(contList, searchValue);
@@ -22,7 +22,6 @@ const ContactList = ({ onDelete }) => {
               id={contact.id}
               name={contact.name}
               number={contact.number}
-              onDelete={onDelete}
             />
           </li>
         );

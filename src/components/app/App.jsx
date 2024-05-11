@@ -47,16 +47,16 @@ function App() {
     setSearchValue(event.target.value);
   };
 
-  const filteredContacts = contList.filter(contact =>
-    contact.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
-  );
+  // const filteredContacts = contList.filter(contact =>
+  //   contact.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())
+  // );
 
   return (
     <div className="mainWrapper">
       <h1>Phonebook</h1>
       <ContactForm onAddContact={handleAddContact} />
       <SearchBox onChange={handleChangeSearch} />
-      <ContactList contList={filteredContacts} onDelete={handleDelContact} />
+      <ContactList onDelete={handleDelContact} />
     </div>
   );
 }

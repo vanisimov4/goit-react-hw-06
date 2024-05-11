@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useId } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import { addContact } from '../../redux/TempActions';
 import css from './ContactForm.module.css';
 
@@ -25,7 +25,7 @@ const PhonebookSchema = Yup.object().shape({
     .required('Required'),
 });
 
-const ContactForm = ({ onAddContact }) => {
+const ContactForm = () => {
   const dispatch = useDispatch();
 
   const nameFieldId = useId();
@@ -50,7 +50,7 @@ const ContactForm = ({ onAddContact }) => {
       validationSchema={PhonebookSchema}
     >
       {props => {
-        // console.log(props.errors);
+        console.log(props.errors);
         return (
           <Form className={css.form}>
             <div>
