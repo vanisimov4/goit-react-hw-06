@@ -50,7 +50,7 @@ const ContactForm = () => {
       validationSchema={PhonebookSchema}
     >
       {props => {
-        console.log(props.errors);
+        // console.log(props.errors);
         return (
           <Form className={css.form}>
             <div>

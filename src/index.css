@@ -36,7 +36,14 @@ h1 {
   line-height: 1.1;
 }
 
-ul {
+ul,
+ol {
   list-style-type: none;
+  margin: 0;
   padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
