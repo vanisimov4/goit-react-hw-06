@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useId } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-// import { nanoid } from 'nanoid';
+import { nanoid } from 'nanoid';
 import { addContact } from '../../redux/TempActions';
 import css from './ContactForm.module.css';
 
@@ -33,8 +33,8 @@ const ContactForm = () => {
 
   const handleSubmit = (values, actions) => {
     const nextRecord = {
-      ...values,
-      // id: nanoid(),
+      // ...values,
+      id: nanoid(),
       name: values.name.trim(),
       number: values.number.trim(),
     };

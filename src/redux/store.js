@@ -29,7 +29,23 @@ const initialState = {
 // тільки повертає отриманий стан
 
 const rootReducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    // Залежно від типу екшену виконуватиметься різна логіка
+    case 'contacts/addContact': {
+      // Потрібно повернути копію об'єкту поточного стану
+      // в якому є всі дані існуючого стану
+      return {
+        ...state,
+        contacts: {
+          // та новий масив задач в якому є всі існуючі завдання
+          // та об'єкт нового завдання
+          items: [...state.contacts.items, action.payload],
+        },
+      };
+    }
+    default:
+      return state;
+  }
 };
 
 export const store = configureStore({
