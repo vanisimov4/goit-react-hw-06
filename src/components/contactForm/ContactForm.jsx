@@ -33,13 +33,12 @@ const ContactForm = () => {
 
   const handleSubmit = (values, actions) => {
     const nextRecord = {
-      // ...values,
       id: nanoid(),
       name: values.name.trim(),
       number: values.number.trim(),
     };
     dispatch(addContact(nextRecord));
-    // onAddContact(nextRecord);
+
     actions.resetForm();
   };
 

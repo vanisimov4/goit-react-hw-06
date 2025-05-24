@@ -1,6 +1,5 @@
 import { useId } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
 import { setFilter } from '../../redux/TempActions';
 import css from './SearchBox.module.css';
 

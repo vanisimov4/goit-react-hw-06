@@ -16,33 +16,32 @@ const initialState = {
   },
 };
 
-// {
-//   contacts: {
-// 		items: []
-// 	},
-//   filters: {
-// 		name: ""
-// 	}
-// }
-
-// Поки що використовуємо редюсер який
-// тільки повертає отриманий стан
-
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    // Залежно від типу екшену виконуватиметься різна логіка
     case 'contacts/addContact': {
-      // Потрібно повернути копію об'єкту поточного стану
-      // в якому є всі дані існуючого стану
       return {
         ...state,
         contacts: {
-          // та новий масив задач в якому є всі існуючі завдання
-          // та об'єкт нового завдання
           items: [...state.contacts.items, action.payload],
         },
       };
     }
+    case 'contacts/deleteContact':
+      return {
+        ...state,
+        contacts: {
+          items: state.contacts.items.filter(
+            contact => contact.id !== action.payload
+          ),
+        },
+      };
+    case 'filters/setFilter':
+      return {
+        ...state,
+        filters: {
+          name: action.payload,
+        },
+      };
     default:
       return state;
   }
