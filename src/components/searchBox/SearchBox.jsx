@@ -1,6 +1,6 @@
 import { useId } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setFilter } from '../../redux/TempActions';
+import { changeFilter } from '../../redux/filtersSlice';
 import css from './SearchBox.module.css';
 
 const SearchBox = () => {
@@ -8,7 +8,7 @@ const SearchBox = () => {
   const dispatch = useDispatch();
   const filter = useSelector(state => state.filters.name);
   const handleChangeSearch = event => {
-    dispatch(setFilter(event.target.value));
+    dispatch(changeFilter(event.target.value));
   };
 
   return (
