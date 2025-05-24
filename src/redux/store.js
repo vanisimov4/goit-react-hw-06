@@ -16,31 +16,30 @@ const initialState = {
   },
 };
 
-const rootReducer = (state = initialState, action) => {
+const contactsReducer = (state = initialState.contacts, action) => {
   switch (action.type) {
     case 'contacts/addContact': {
       return {
         ...state,
-        contacts: {
-          items: [...state.contacts.items, action.payload],
-        },
+        items: [...state.items, action.payload],
       };
     }
     case 'contacts/deleteContact':
       return {
         ...state,
-        contacts: {
-          items: state.contacts.items.filter(
-            contact => contact.id !== action.payload
-          ),
-        },
+        items: state.items.filter(contact => contact.id !== action.payload),
       };
+    default:
+      return state;
+  }
+};
+
+const filtersReducer = (state = initialState.filters, action) => {
+  switch (action.type) {
     case 'filters/setFilter':
       return {
         ...state,
-        filters: {
-          name: action.payload,
-        },
+        name: action.payload,
       };
     default:
       return state;
@@ -48,7 +47,10 @@ const rootReducer = (state = initialState, action) => {
 };
 
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    contacts: contactsReducer,
+    filters: filtersReducer,
+  },
 });
 
 // Створюємо розширення стора, щоб додати інструменти розробника
